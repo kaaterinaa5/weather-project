@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+    <title>Weather App</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="weather-app">
+            <h1>
+                Weather Forecast
+            </h1>
+            <form class="search-form" id="search-form">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="search" placeholder="Enter your city" autocomplete="off" autofocus="on"
+                            id="search-text-input" class="form-control shadow-sm" />
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm w-100" />
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success w-100" id="current-location"> Current </button>
+                    </div>
+                </div>
+        </div>
+        </form>
+        <h2 id="city">
+
+            <h2>
+                <ul>
+                    <li id="current-date">
+
+                    </li>
+                    <li id="description"></li>
+                </ul>
+
+                <div class="row">
+                    <div class="col-6">
+
+                        <span class="temperature" id="temp"> </span>
+                        <span class="units">
+                            <a href="#" id="celsius-link"> °C </a>
+                        </span>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+
+                            <li>
+                                Humidity: <span id="humidity"></span>%
+                            </li>
+                            <li>
+                                Wind: <span id="wind"></span>km/h
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Monday</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"> <img
+                                    src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" /></h6>
+                            <p class="card-text"> <span class="temperature">27°C / 21°C</span></p>
+
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Tuesday</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img
+                                    src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" /></h6>
+                            <p class="card-text"><span class="temperature">27°C / 21°C</span></p>
+
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Wednesday</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img
+                                    src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" /></h6>
+                            <p class="card-text"><span class="temperature">28°C / 22°C</span></p>
+
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Thursday</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img
+                                    src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" /></h6>
+                            <p class="card-text"> <span class="temperature">28°C / 21°C</span></p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Friday</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img
+                                    src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" /></h6>
+                            <p class="card-text"><span class="temperature">26°C / 21°C</span></p>
+
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Saturday</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img
+                                    src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" /></h6>
+                            <p class="card-text"><span class="temperature"> 27°C / 21°C</span></p>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <script src="src/index.js"> </script>
+</body>
+
+</html>
