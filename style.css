@@ -40,9 +40,16 @@ ul {
 .temperature {
   color: #878787;
   cursor: pointer;
-
   font-size: 20px;
   font-weight: 400;
 }
-a {
+.inline {
+  display: inline;
+}
+.card {
+  border: none;
+}
+.card:hover {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-top: 10px;
 }
