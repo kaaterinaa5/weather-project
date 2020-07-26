@@ -1,10 +1,14 @@
 body {
+  max-width: 950px;
+  margin: auto;
+}
+
+.body {
   font-family: arial, sans-serif;
   border: 1px solid #878787;
   border-radius: 10px;
   padding: 20px;
   margin: auto;
-  max-width: 950px;
 }
 h1 {
   color: #878787;
