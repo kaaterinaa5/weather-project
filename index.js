@@ -28,6 +28,9 @@ function showWeather(response) {
   document.querySelector("#temp").innerHTML = Math.round(
     response.data.main.temp
   );
+
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
@@ -69,6 +72,30 @@ function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
+// celsius and fahrenheit
+
+function ShowFahrenheitTemperature(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function ShowCelsiusTemperature(event) {
+  event.preventDefault();
+
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", ShowFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", ShowCelsiusTemperature);
+
+// end celsius and fahrenheit
 
 function getCurrentLocation(event) {
   event.preventDefault();
