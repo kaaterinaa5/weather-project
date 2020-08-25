@@ -1,17 +1,18 @@
 function formatDate(timestamp) {
   let now = new Date(timestamp);
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
 }
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-return `${day} ${formatHours(timestamp)}`;
 currentDate.innerHTML = `${day} ${hours}:${minutes}`;
 
 function formatHours(timestamp) {
