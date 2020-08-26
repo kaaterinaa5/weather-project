@@ -13,11 +13,11 @@ function formatDate(timestamp) {
   let day = days[now.getDay()];
   return `${day} ${formatHours(timestamp)}`;
 }
-currentDate.innerHTML = `${day} ${hours}:${minutes}`;
+let currentDate = document.querySelector("#current-date");
+currentDate.innerHTML = formatDate();
 
 function formatHours(timestamp) {
   let now = new Date(timestamp);
-  let currentDate = document.querySelector("#current-date");
 
   let hours = now.getHours();
   if (hours < 10) {
@@ -28,8 +28,9 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+
+  return `${hours}:${minutes}`;
 }
-return `${hours}:${minutes}`;
 
 function showWeather(response) {
   console.log(response.data.weather[0].icon);
@@ -48,7 +49,7 @@ function showWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-  dataElemement.innerHTML = formatDate(response.data.dt * 1000);
+  currentDate.innerHTML = formatDate(response.data.dt * 1000);
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -64,8 +65,8 @@ function showForecast(response) {
   let forecast = response.data.list[0];
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML = `<div class="card col-2" id="forecast">
-                        <div class="card-body">
+    forecastElement.innerHTML += `<div class="card col-2" id="forecast">
+                        <div class="card-body text-center">
 
                             <h5 class="card-title">${fortmatHours(
                               forecast.dt * 1000
