@@ -62,13 +62,11 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-  let forecast = response.data.list[0];
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `<div class="card col-2" id="forecast">
                         <div class="card-body text-center">
-
-                            <h5 class="card-title">${fortmatHours(
+                            <h5 class="card-title">${formatHours(
                               forecast.dt * 1000
                             )}</h5>
                             <h6 class="card-subtitle mb-2 text-muted"> <img
@@ -80,17 +78,15 @@ function showForecast(response) {
                             )}°C / ${Math.round(
       forecast.main.temp_min
     )}°C</span></p>
-
                         </div>
                     </div>`;
   }
 }
-
 function searchCity(city) {
   let apiKey = "cc0c04c662ada3cd15e0c73cbe9dece0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
 }
 
